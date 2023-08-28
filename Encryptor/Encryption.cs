@@ -6,8 +6,7 @@ namespace Encryptor
     class Encryption
     {
         private byte[] IV = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-        private int BlockSize = 128;
-        
+       
         
         public void EncryptFile(string filePath,byte[]key)
     {
