@@ -5,15 +5,16 @@ namespace Encryptor
 {
     class Keys
     {
-        public string Key{get;set;}
-        
-        public byte[] KeyByte(){
+        public string Key { get; set; }
+
+        public byte[] KeyByte()
+        {
             HashAlgorithm hash = MD5.Create();
-            return  hash.ComputeHash(Encoding.Unicode.GetBytes(this.Key));
+            return hash.ComputeHash(Encoding.Unicode.GetBytes(this.Key));
         }
 
 
 
-        
+
     }
 }

@@ -2,15 +2,16 @@ using System;
 
 namespace Encryptor
 {
-    public static class ClearFile{
-        public static void ClearFileFunction(string filePath)
+    public static class ClearFile
     {
-        using (var fileStream = new FileStream(filePath, FileMode.Open))
+        public static void ClearFileFunction(string filePath)
         {
-            fileStream.Seek(0, SeekOrigin.Begin);
-            fileStream.SetLength(0);
+            using (var fileStream = new FileStream(filePath, FileMode.Open))
+            {
+                fileStream.Seek(0, SeekOrigin.Begin);
+                fileStream.SetLength(0);
+            }
         }
     }
-    }
-    
+
 }
