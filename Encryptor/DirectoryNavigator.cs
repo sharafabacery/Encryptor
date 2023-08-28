@@ -3,7 +3,6 @@ namespace Encryptor
 {
     class DirectoryNavigator
     {
-        public string TargetDirectory { get; set; }
         public List<string> directories;
         public DirectoryNavigator()
         {
