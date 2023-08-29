@@ -3,28 +3,30 @@ namespace Encryptor
 {
     class DirectoryNavigator
     {
-        public List<string> directories;
+        
+        public List<DirectoryBuilder> Directories{private set;get;}
         public DirectoryNavigator()
         {
-            directories = new List<string>();
+            Directories = new List<DirectoryBuilder>();
+           
         }
-        public void DirectoryHasSubdirectories(string directoryPath)
+        public void GetSubDirectoriesofDirectory(string directoryPath)
         {
             // Check if the directory exists
             if (!Directory.Exists(directoryPath))
             {
                 throw new DirectoryNotFoundException($"Directory not found: {directoryPath}");
             }
-            directories.Add(directoryPath);
+            Directories.Add(new DirectoryBuilder(directoryPath));
 
             // Get the subdirectories in the directory
             string[] subdirectories = Directory.GetDirectories(directoryPath);
             foreach (var item in subdirectories)
             {
-                DirectoryHasSubdirectories(item);
+                GetSubDirectoriesofDirectory(item);
             }
 
-            // Check if any subdirectories exist
+            
         }
 
     }
