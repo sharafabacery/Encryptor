@@ -6,23 +6,22 @@ namespace Encryptor
     class Encryption
     {
         private byte[] IV = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-        private string filePath;
+        public string FilePath{set;get;}="";
         private byte[] key;
-        public Encryption(string filePath, byte[] key)
-        {
-            this.filePath = filePath;
+        public Encryption( byte[] key)
+        { 
             this.key = key;
         }
         public void EncryptFile()
         {
-            string tempFile = this.filePath + ".temp";
+            string tempFile = this.FilePath + ".temp";
 
             using (var aes = Aes.Create())
             {
                 aes.Key = this.key;
                 aes.IV = IV;
 
-                using (var inputFileStream = new FileStream(this.filePath, FileMode.Open))
+                using (var inputFileStream = new FileStream(this.FilePath, FileMode.Open))
                 using (var outputFileStream = new FileStream(tempFile, FileMode.Create))
                 using (var cryptoStream = new CryptoStream(outputFileStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
                 {
@@ -30,9 +29,9 @@ namespace Encryptor
                 }
             }
 
-            ClearFile.ClearFileFunction(this.filePath);
-            File.Delete(this.filePath);
-            File.Move(tempFile, this.filePath);
+            ClearFile.ClearFileFunction(this.FilePath);
+            File.Delete(this.FilePath);
+            File.Move(tempFile, this.FilePath);
             //ClearFile.ClearFileFunction(tempFile);
 
             //File.Delete(tempFile);
