@@ -1,4 +1,7 @@
 using System;
+using System.Dynamic;
+using System.Resources;
+
 namespace Encryptor
 {
     class DirectoryNavigator
@@ -10,6 +13,7 @@ namespace Encryptor
             Directories = new List<DirectoryBuilder>();
            
         }
+        
         public void GetSubDirectoriesofDirectory(string directoryPath)
         {
             // Check if the directory exists
