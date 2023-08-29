@@ -21,7 +21,7 @@ namespace Encryptor
             ///encryption.EncryptFile("F:\\.Net Stack ITI\\projects\\Encryptor\\Encryptor\\38.mp4",keys.KeyByte());
             //Decryption decryption=new Decryption();
             //decryption.DecryptFile("F:\\.Net Stack ITI\\projects\\Encryptor\\Encryptor\\38.mp4",keys.KeyByte());
-            */
+           
             DirectoryNavigator directoryNavigator=new DirectoryNavigator();
             directoryNavigator.GetSubDirectoriesofDirectory("F:\\sql server");
             foreach (var item in directoryNavigator.Directories)
@@ -30,7 +30,8 @@ namespace Encryptor
                 foreach(var item2 in item.files){
                     System.Console.WriteLine("File name: "+item2);
                 }
-            }
+            } */
+            File.Delete("F:\\New folder (3)\\New Bitmap Image.bmp");
 
         }
     }
