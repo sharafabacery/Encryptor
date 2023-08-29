@@ -23,10 +23,13 @@ namespace Encryptor
             //decryption.DecryptFile("F:\\.Net Stack ITI\\projects\\Encryptor\\Encryptor\\38.mp4",keys.KeyByte());
             */
             DirectoryNavigator directoryNavigator=new DirectoryNavigator();
-            directoryNavigator.GetSubDirectoriesofDirectory("F:\\BOOKS");
+            directoryNavigator.GetSubDirectoriesofDirectory("F:\\sql server");
             foreach (var item in directoryNavigator.Directories)
             {
-                System.Console.WriteLine(item.DirectoryPath);
+                System.Console.WriteLine("Directory name: "+item.DirectoryPath);
+                foreach(var item2 in item.files){
+                    System.Console.WriteLine("File name: "+item2);
+                }
             }
 
         }

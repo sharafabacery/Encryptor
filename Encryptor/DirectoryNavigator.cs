@@ -17,7 +17,9 @@ namespace Encryptor
             {
                 throw new DirectoryNotFoundException($"Directory not found: {directoryPath}");
             }
-            Directories.Add(new DirectoryBuilder(directoryPath));
+            DirectoryBuilder directoryBuilder =new DirectoryBuilder(directoryPath);
+            directoryBuilder.DirectoryFiles();
+            Directories.Add(directoryBuilder);
 
             // Get the subdirectories in the directory
             string[] subdirectories = Directory.GetDirectories(directoryPath);
