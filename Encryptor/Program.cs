@@ -31,7 +31,7 @@ namespace Encryptor
                     System.Console.WriteLine("File name: "+item2);
                 }
             } */
-            File.Delete("F:\\New folder (3)\\New Bitmap Image.bmp");
+            //File.Delete("F:\\New folder (3)\\New Bitmap Image.bmp");
 
         }
     }
