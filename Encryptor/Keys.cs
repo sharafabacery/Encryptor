@@ -6,10 +6,15 @@ namespace Encryptor
     class Keys
     {
         private string key ;
-         
+        public string Key
+    {
+       
+        set { Key = value; }
+    }
          public Keys(string Key){
             this.key=Key;
          }
+        public void setKey(){  }
         public byte[] KeyByte()
         {
             HashAlgorithm hash = MD5.Create();

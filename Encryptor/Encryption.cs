@@ -12,6 +12,7 @@ namespace Encryptor
         { 
             this.key = key;
         }
+        
         public void EncryptFile()
         {
             string tempFile = this.FilePath + ".temp";

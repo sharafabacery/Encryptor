@@ -3,23 +3,23 @@ namespace Encryptor
 {
     class DirectoryBuilder
     {
-        public string DirectoryPath{private set;get;}
+        private string directoryPath;
 
         public List<string> files{private set;get;}=new List<string>();
         public DirectoryBuilder(string directoryPath){
-            this.DirectoryPath=directoryPath;
+            this.directoryPath=directoryPath;
         }
 
         public void DirectoryFiles()
         {
             // Check if the directory exists
-            if (!Directory.Exists(this.DirectoryPath))
+            if (!Directory.Exists(this.directoryPath))
             {
-                throw new DirectoryNotFoundException($"Directory not found: {this.DirectoryPath}");
+                throw new DirectoryNotFoundException($"Directory not found: {this.directoryPath}");
             }
 
             // Get the files in the directory
-            files = Directory.GetFiles(this.DirectoryPath).ToList();
+            files = Directory.GetFiles(this.directoryPath).ToList();
 
         }
 
