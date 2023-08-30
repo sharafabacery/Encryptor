@@ -5,6 +5,10 @@ namespace Encryptor
     {
         static void Main(string[] args)
         {
+            //EncryptorController encryptorController =new EncryptorController("a7a7a7a7a7a7a7a7a7");
+           // encryptorController.ApplyEncryptionDirectories("C:\\Users\\Sharaf Elden\\Desktop\\New folder (2)");
+           //encryptorController.ApplyDecryptionDirectories("C:\\Users\\Sharaf Elden\\Desktop\\New folder (2)");
+
             /*Keys keys =new Keys();
             keys.Key="SGVsbG8gdGhlcmUh";
             DirectoryBuilder directoryBuilder =new DirectoryBuilder();
