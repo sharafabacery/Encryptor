@@ -10,15 +10,16 @@ namespace Encryptor
             ConsoleDispaly.WelcomeDispaly();
             while (true)
             {
+                ConsoleDispaly.EnterYourOpertion();
                 operation=Convert.ToInt32(Console.ReadLine());
                 if(operation==0)break;
                 ConsoleDispaly.InsertKey();
-                encryptorController.SetKeys(Console.ReadLine());
+                encryptorController.SetKeys(Convert.ToString(Console.ReadLine()));
                 try
                 {
                 if(operation==1){
                     ConsoleDispaly.InsertFilePath();
-                    if(encryptorController.ApplyEncryption(Console.ReadLine()))
+                    if(encryptorController.ApplyEncryption(Convert.ToString(Console.ReadLine())))
                     {
                         ConsoleDispaly.SuccessMessage();
                     }else

@@ -3,7 +3,7 @@ namespace Encryptor
 {
     public static class ConsoleDispaly{
         public static void WelcomeDispaly(){
-            System.Console.WriteLine("Hey My name is Encryptor,I can make serval Features:\n 1)Encrypt File \n 2)Decrypt File \n 3)Encrypt Directory\n 4)Decrypt Directory \n 5)Encrypt Directory wth sub-Directories \n 6)Decrypt Directory wth sub-Directories \n");
+            System.Console.WriteLine("Hey My name is Encryptor,I can make serval Features:\n 1)Encrypt File \n 2)Decrypt File \n 3)Encrypt Directory\n 4)Decrypt Directory \n 5)Encrypt Directory wth sub-Directories \n 6)Decrypt Directory wth sub-Directories \n 0)exit \n");
         }
         public static void InsertKey(){
             System.Console.WriteLine("please insert key to begin the process: \n");

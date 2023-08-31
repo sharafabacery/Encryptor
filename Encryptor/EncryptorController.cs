@@ -14,7 +14,7 @@ namespace Encryptor
         
         public void SetKeys(string key)
         {
-            keys.Key = key;
+            keys=new Keys(key);
             ByteKey = keys.KeyByte();
             encryption = new Encryption(ByteKey);
             decryption = new Decryption(ByteKey);
