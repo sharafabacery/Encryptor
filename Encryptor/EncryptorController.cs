@@ -11,21 +11,15 @@ namespace Encryptor
         private int totalFiles;
         private Byte[] ByteKey;
 
-        public EncryptorController(string key)
-        {
-            keys = new Keys(key);
-            ByteKey = keys.KeyByte();
-            encryption = new Encryption(ByteKey);
-            decryption = new Decryption(ByteKey);
-            numberOfAffectedFiles = 0;
-            totalFiles = 0;
-        }
+        
         public void SetKeys(string key)
         {
             keys.Key = key;
             ByteKey = keys.KeyByte();
             encryption = new Encryption(ByteKey);
             decryption = new Decryption(ByteKey);
+             numberOfAffectedFiles = 0;
+            totalFiles = 0;
         }
         public Tuple<int,int> NumberOfFilesAffected()
         {

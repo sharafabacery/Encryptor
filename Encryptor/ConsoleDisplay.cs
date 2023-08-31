@@ -20,6 +20,12 @@ namespace Encryptor
         public static void NumberOfFilesProceed(Tuple<int,int>x){
             System.Console.WriteLine($"Number of proceed files ${x.Item1} and Numer oF Total Files {x.Item2}");
         }
+        public static void SuccessMessage(){
+            System.Console.WriteLine("opeation complete and Successed");
+        }
+        public static void FailedMessage(){
+            System.Console.WriteLine("opeation failed");
+        }
 
     }
 }
