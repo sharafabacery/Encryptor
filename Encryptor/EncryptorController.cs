@@ -18,16 +18,13 @@ namespace Encryptor
             ByteKey = keys.KeyByte();
             encryption = new Encryption(ByteKey);
             decryption = new Decryption(ByteKey);
-             numberOfAffectedFiles = 0;
+            numberOfAffectedFiles = 0;
             totalFiles = 0;
         }
         public Tuple<int,int> NumberOfFilesAffected()
         {
-            int returned1=this.numberOfAffectedFiles;
-            int returned2=this.totalFiles;
-            this.numberOfAffectedFiles=0;
-            this.totalFiles=0;
-            return Tuple.Create(returned1,returned2);
+          
+            return Tuple.Create(this.numberOfAffectedFiles,this.totalFiles);
         }
 
         public bool ApplyEncryption(string filePath)
