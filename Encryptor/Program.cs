@@ -5,51 +5,55 @@ namespace Encryptor
     {
         static void Main(string[] args)
         {
-            EncryptorController encryptorController=new EncryptorController();
+            EncryptorController encryptorController = new EncryptorController();
             int operation;
             ConsoleDispaly.WelcomeDispaly();
             while (true)
             {
                 ConsoleDispaly.EnterYourOpertion();
-                operation=Convert.ToInt32(Console.ReadLine());
-                if(operation==0)break;
+                operation = Convert.ToInt32(Console.ReadLine());
+                if (operation == 0) break;
                 ConsoleDispaly.InsertKey();
                 encryptorController.SetKeys(Convert.ToString(Console.ReadLine()));
                 try
                 {
-                if(operation==1){
-                    ConsoleDispaly.InsertFilePath();
-                    if(encryptorController.ApplyEncryption(Convert.ToString(Console.ReadLine())))
+                    if (operation == 1)
                     {
-                        ConsoleDispaly.SuccessMessage();
-                    }else
-                    {
-                        ConsoleDispaly.FailedMessage();
+                        ConsoleDispaly.InsertFilePath();
+                        if (encryptorController.ApplyEncryption(Convert.ToString(Console.ReadLine())))
+                        {
+                            ConsoleDispaly.SuccessMessage();
+                        }
+                        else
+                        {
+                            ConsoleDispaly.FailedMessage();
+                        }
                     }
-                }
-                else if(operation==2){
-                    ConsoleDispaly.InsertFilePath();
-                    if(encryptorController.ApplyDecryption(Console.ReadLine()))
+                    else if (operation == 2)
                     {
-                        ConsoleDispaly.SuccessMessage();
-                    }else
-                    {
-                        ConsoleDispaly.FailedMessage();
+                        ConsoleDispaly.InsertFilePath();
+                        if (encryptorController.ApplyDecryption(Console.ReadLine()))
+                        {
+                            ConsoleDispaly.SuccessMessage();
+                        }
+                        else
+                        {
+                            ConsoleDispaly.FailedMessage();
+                        }
                     }
-                }    
                 }
                 catch (System.Exception E)
                 {
                     System.Console.WriteLine(E.Message);
-                    
+
                 }
-                 
+
             }
-                
+
 
             //EncryptorController encryptorController =new EncryptorController("a7a7a7a7a7a7a7a7a7");
-           // encryptorController.ApplyEncryptionDirectories("C:\\Users\\Sharaf Elden\\Desktop\\New folder (2)");
-           //encryptorController.ApplyDecryptionDirectories("C:\\Users\\Sharaf Elden\\Desktop\\New folder (2)");
+            // encryptorController.ApplyEncryptionDirectories("C:\\Users\\Sharaf Elden\\Desktop\\New folder (2)");
+            //encryptorController.ApplyDecryptionDirectories("C:\\Users\\Sharaf Elden\\Desktop\\New folder (2)");
 
             /*Keys keys =new Keys();
             keys.Key="SGVsbG8gdGhlcmUh";
