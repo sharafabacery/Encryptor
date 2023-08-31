@@ -4,7 +4,6 @@ namespace Encryptor
     class EncryptorController
     {
         private DirectoryNavigator directoryNavigator;
-        private DirectoryBuilder directoryBuilder;
         private Encryption encryption;
         private Decryption decryption;
         private Keys keys;
@@ -70,47 +69,12 @@ namespace Encryptor
             return complete;
 
         }
-        public void ApplyEncryptionDirectoy(string directoryPath)
-        {
-            directoryBuilder = new DirectoryBuilder(directoryPath);
-            directoryBuilder.DirectoryFiles();
-            totalFiles += directoryBuilder.files.Count;
-            foreach (var item in directoryBuilder.files)
-            {
-                if (!this.ApplyEncryption(item))
-                {
-                    break;
-                }
-                else
-                {
-                    numberOfAffectedFiles++;
-                }
-            }
-
-        }
-        public void ApplyDecryptionDirectoy(string directoryPath)
-        {
-
-            directoryBuilder = new DirectoryBuilder(directoryPath);
-            directoryBuilder.DirectoryFiles();
-            totalFiles += directoryBuilder.files.Count;
-            foreach (var item in directoryBuilder.files)
-            {
-                if (!this.ApplyDecryption(item))
-                {
-                    break;
-                }
-                else
-                {
-                    numberOfAffectedFiles++;
-                }
-            }
-
-        }
-        public void ApplyEncryptionDirectories(string directoryPath)
+        
+        
+        public void ApplyEncryptionDirectory(string directoryPath,Nullable<int> depth)
         {
             directoryNavigator = new DirectoryNavigator();
-            directoryNavigator.GetSubDirectoriesofDirectory(directoryPath);
+            directoryNavigator.GetDirectory(directoryPath,depth);
             foreach (var item in directoryNavigator.Directories)
             {
                 totalFiles += item.files.Count;
@@ -128,10 +92,10 @@ namespace Encryptor
 
             }
         }
-        public void ApplyDecryptionDirectories(string directoryPath)
+        public void ApplyDecryptionDirectory(string directoryPath,Nullable<int>depth)
         {
             directoryNavigator = new DirectoryNavigator();
-            directoryNavigator.GetSubDirectoriesofDirectory(directoryPath);
+            directoryNavigator.GetDirectory(directoryPath,depth);
             foreach (var item in directoryNavigator.Directories)
             {
                 totalFiles += item.files.Count;

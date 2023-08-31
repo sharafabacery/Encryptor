@@ -13,13 +13,19 @@ namespace Encryptor
             Directories = new List<DirectoryBuilder>();
            
         }
+        public void GetDirectory(string directoryPath,Nullable<int> depthLimit){
+            this.DFS(directoryPath,depthLimit,0);
+        }
         
-        public void GetSubDirectoriesofDirectory(string directoryPath)
+        private void DFS(string directoryPath,Nullable<int> depthLimit,int currentDepth)
         {
             // Check if the directory exists
             if (!Directory.Exists(directoryPath))
             {
                 throw new DirectoryNotFoundException($"Directory not found: {directoryPath}");
+            }
+            if(depthLimit is not null&&currentDepth>depthLimit){
+                    return;
             }
             DirectoryBuilder directoryBuilder =new DirectoryBuilder(directoryPath);
             directoryBuilder.DirectoryFiles();
@@ -29,7 +35,7 @@ namespace Encryptor
             string[] subdirectories = Directory.GetDirectories(directoryPath);
             foreach (var item in subdirectories)
             {
-                GetSubDirectoriesofDirectory(item);
+                DFS(item,depthLimit,currentDepth+1);
             }
 
             
